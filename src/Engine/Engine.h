@@ -11,9 +11,15 @@
 	#include <Windows.h>
 	#include <SDL.h>
 #endif
+#ifdef __linux__
+	#ifndef __APPLE__
+		#include <SDL2/SDL.h>
+		#include <GL/glut.h>
+	#endif
+#endif
 
-#include "Sprite/Sprite.h"
-#include "GLSLProgram.h"
+#include "../Sprite/Sprite.h"
+#include "../GLSL/GLSLProgram.h"
 
 enum class GameState {PLAY, EXIT};
 
