@@ -1,0 +1,4 @@
+//the configured options and settings for pgen-t
+#define Engine_01_VERSION_MAJOR @Engine_01_VERSION_MAJOR@
+#define Engine_01_VERSION_MINOR @Engine_01_VERSION_MINOR@
+#define Engine_01_VERSION_PATCH @Engine_01_VERSION_PATCH@
