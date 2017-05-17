@@ -1,6 +1,14 @@
 #pragma once
 
-#include <glew.h>
+#ifdef __APPLE__
+    #include <GLUT/glut.h>
+    #include <OpenGL/gl.h>
+    #include <OpenGL/glu.h>
+#endif
+#ifdef _WIN32
+	#include <glew.h>
+#endif
+
 #include <string>
 
 class GLSLProgram

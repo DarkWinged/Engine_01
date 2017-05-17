@@ -1,9 +1,18 @@
 #pragma once
 
-#include <SDL.h>
-#include <glew.h>
-#include <Windows.h>
-#include "Sprite.h"
+#ifdef __APPLE__
+	#include <SDL2/SDL.h>
+    #include <GLUT/glut.h>
+    #include <OpenGL/gl.h>
+    #include <OpenGL/glu.h>
+#endif
+#ifdef _WIN32
+	#include <glew.h>
+	#include <Windows.h>
+	#include <SDL.h>
+#endif
+
+#include "Sprite/Sprite.h"
 #include "GLSLProgram.h"
 
 enum class GameState {PLAY, EXIT};

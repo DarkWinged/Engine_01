@@ -1,7 +1,8 @@
-#include "Engine.h"
 #include <iostream>
 #include <string>
-#include "error.h"
+
+#include "Engine.h"
+#include "Error/error.h"
 
 void display(void)
 {
@@ -47,9 +48,11 @@ void Engine::initilize()
     if(glContext == nullptr)
     	fatalError("SDL_GL context could not be created!");
 
+#ifndef __APPLE__
     GLenum error = glewInit();
     if(error != GLEW_OK)
     	fatalError("Could not initialize glew!");
+#endif
 
     SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 
@@ -60,7 +63,7 @@ void Engine::initilize()
 
 void Engine::initShaders()
 {
-	_shaderProgram.compileShaders("./shaders/shader.vert", "./shaders/shader.frag");
+	_shaderProgram.compileShaders("./resources/shaders/shader.vert", "./resources/shaders/shader.frag");
 	_shaderProgram.addAttribute("vertexPosition");
 	_shaderProgram.linkShaders();
 }
