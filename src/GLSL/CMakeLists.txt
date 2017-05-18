@@ -1,6 +1,6 @@
 project(GLSL)
 
-add_library(libGLSL GLSLProgram.cpp)
+add_library(glsl GLSLProgram.cpp)
 
-install(TARGETS libGLSL DESTINATION ${PROJECT_BINARY_DIR}/lib)
-install(FILES GLSLProgram.h DESTINATION ${PROJECT_BINARY_DIR}/include)
+install(TARGETS glsl DESTINATION lib)
+install(FILES GLSLProgram.h DESTINATION include)

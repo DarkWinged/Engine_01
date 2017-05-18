@@ -1,6 +1,6 @@
 project(Error)
 
-add_library(libError error.cpp)
+add_library(error error.cpp)
 
-install(TARGETS libError DESTINATION ${PROJECT_BINARY_DIR}/lib)
-install(FILES error.h DESTINATION ${PROJECT_BINARY_DIR}/include)
+install(TARGETS error DESTINATION lib)
+install(FILES error.h DESTINATION include)

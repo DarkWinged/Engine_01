@@ -13,7 +13,7 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 
 #Move the output to the SOURCE directory
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
+#set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 
 #Set the version numbering
 set(Engine_01_VERSION_MAJOR 0)
@@ -46,6 +46,9 @@ file(GLOB_RECURSE all_shaders resources/all/shaders/*)
 file(COPY ${sys_shaders} DESTINATION resources/shaders)
 file(COPY ${all_shaders} DESTINATION resources/shaders)
 
+file(GLOB_RECURSE shaders ${PROJECT_BINARY_DIR}/resources/shaders/*)
+install(FILES ${shaders} DESTINATION resources/shaders)
+
 ################################################################################
 ## dependencies ################################################################
 ################################################################################
@@ -68,11 +71,12 @@ set(DEP_LIBRARIES ${DEP_LIBRARIES} ${SDL2_LIBRARY})
 ###############################################################################
 ## target definitions #########################################################
 ###############################################################################
-#file(GLOB_RECURSE sources "${CMAKE_SOURCE_DIR}/src/*.cpp")
 
 # add_executable(${CMAKE_PROJECT_NAME} ${sources} ${shaders})
 # target_compile_options(${CMAKE_PROJECT_NAME} PUBLIC -Wall -g)
 #target_include_directories(${CMAKE_PROJECT_NAME} PUBLIC src)
 add_subdirectory(src)
 add_executable(${CMAKE_PROJECT_NAME} src/main.cpp)
-target_link_libraries(${CMAKE_PROJECT_NAME} ${libEngine} ${DEP_LIBRARIES})
+target_link_libraries(${CMAKE_PROJECT_NAME} sprite error glsl engine ${DEP_LIBRARIES})
+install(TARGETS ${CMAKE_PROJECT_NAME} DESTINATION bin)
+

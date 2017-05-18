@@ -1,6 +1,6 @@
 project(Engine)
 
-add_library(libEngine Engine.cpp)
+add_library(engine Engine.cpp)
 
-install(TARGETS libEngine DESTINATION ${PROJECT_BINARY_DIR}/lib)
-install(FILES Engine.h DESTINATION ${PROJECT_BINARY_DIR}/include)
+install(TARGETS engine DESTINATION lib)
+install(FILES Engine.h DESTINATION include)

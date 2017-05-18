@@ -1,6 +1,6 @@
 project(Sprite)
 
-add_library(sprite Sprite.cpp)
+add_library(sprite STATIC Sprite.cpp)
 
-install(TARGETS sprite DESTINATION ${PROJECT_BINARY_DIR}/lib)
-install(FILES Sprite.h DESTINATION ${PROJECT_BINARY_DIR}/include)
+install(TARGETS sprite DESTINATION lib)
+install(FILES Sprite.h DESTINATION include)
