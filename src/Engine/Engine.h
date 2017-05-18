@@ -23,8 +23,7 @@
 
 enum class GameState {PLAY, EXIT};
 
-class Engine
-{
+class Engine {
 public:
 	Engine();
 	Engine(int arg0, int arg1);
@@ -33,7 +32,6 @@ public:
 	void run();
 
 private:
-
 	void initilize();
 	void initShaders();
 	void processInput();

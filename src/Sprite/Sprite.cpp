@@ -1,27 +1,26 @@
 #include "Sprite.h"
 
 
-Sprite::Sprite()
-{
+Sprite::Sprite() {
 	_vboID = 0;
 }
 
-Sprite::~Sprite()
-{
-	if(_vboID != 0)
+Sprite::~Sprite() {
+	if(_vboID != 0) {
 		glDeleteBuffers(1, &_vboID);
+	}
 }
 
 
-void Sprite::init(float x, float y, float width, float height)
-{
+void Sprite::init(float x, float y, float width, float height) {
 	_x = x;
 	_y = y;
 	_width = width;
 	_height = height;
 
-	if(_vboID == 0)
+	if(_vboID == 0) {
 		glGenBuffers(1, &_vboID);
+	}
 
 	float vertexData[12];
 
@@ -49,8 +48,7 @@ void Sprite::init(float x, float y, float width, float height)
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
 
-void Sprite::draw()
-{
+void Sprite::draw() {
 	glBindBuffer(GL_ARRAY_BUFFER, _vboID);
 	glEnableVertexAttribArray(0);
 

@@ -11,8 +11,7 @@
 
 #include <string>
 
-class GLSLProgram
-{
+class GLSLProgram {
 public:
 	GLSLProgram();
 	~GLSLProgram();
@@ -25,6 +24,7 @@ public:
 
 	void use();
 	void unuse();
+	
 private:
 	int _numAttributes;
 
