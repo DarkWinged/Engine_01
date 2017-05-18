@@ -1,6 +1,6 @@
 project(GLSL)
 
-add_library(glsl GLSLProgram.cpp)
+add_library(GLSL STATIC GLSLProgram.cpp)
 
-install(TARGETS glsl DESTINATION lib)
+install(TARGETS GLSL DESTINATION lib)
 install(FILES GLSLProgram.h DESTINATION include)

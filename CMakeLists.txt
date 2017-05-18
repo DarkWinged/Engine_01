@@ -64,19 +64,15 @@ find_package(SDL2 REQUIRED)
 include_directories(${SDL2_INCLUDE_DIR})
 set(DEP_LIBRARIES ${DEP_LIBRARIES} ${SDL2_LIBRARY})
 
-# find_package(GLEW REQUIRED)
-# include_directories(${GLEW_INCLUDE_DIR})
-# set(DEP_LIBRARIES ${DEP_LIBRARIES} ${GLUT_LIBRARIES})
+find_package(GLEW REQUIRED)
+include_directories(${GLEW_INCLUDE_DIR})
+set(DEP_LIBRARIES ${DEP_LIBRARIES} ${GLEW_LIBRARIES})
 
 ###############################################################################
 ## target definitions #########################################################
 ###############################################################################
-
-# add_executable(${CMAKE_PROJECT_NAME} ${sources} ${shaders})
-# target_compile_options(${CMAKE_PROJECT_NAME} PUBLIC -Wall -g)
-#target_include_directories(${CMAKE_PROJECT_NAME} PUBLIC src)
 add_subdirectory(src)
 add_executable(${CMAKE_PROJECT_NAME} src/main.cpp)
-target_link_libraries(${CMAKE_PROJECT_NAME} sprite error glsl engine ${DEP_LIBRARIES})
+target_link_libraries(${CMAKE_PROJECT_NAME} Sprite Error GLSL Engine ${DEP_LIBRARIES})
 install(TARGETS ${CMAKE_PROJECT_NAME} DESTINATION bin)
 
