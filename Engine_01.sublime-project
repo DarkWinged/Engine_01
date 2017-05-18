@@ -2,7 +2,9 @@
 	"folders":
 	[
 		{
-			"path": "."
+			"path": ".",
+			//Hides the VS project stuff
+			"file_exclude_patterns": ["*.sln", "*.vcxproj", "*.filters"]
 		}
 	]
 }
