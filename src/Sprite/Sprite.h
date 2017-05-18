@@ -1,16 +1,20 @@
-#pragma once
+#ifndef SPRITE_H
+#define SPRITE_H
 
-#ifdef __APPLE__
+#ifdef _WIN32
+	#include <glew.h>
+#elif __APPLE__
     #include <GLUT/glut.h>
     #include <OpenGL/gl.h>
     #include <OpenGL/glu.h>
-#endif
-#ifdef _WIN32
-	#include <glew.h>
+#elif __linux__
+	#define GL_GLEXT_PROTOTYPES
+	#include <GL/glut.h>
+	#include <GL/gl.h>
+	#include <GL/glext.h>
 #endif
 
-class Sprite
-{
+class Sprite {
 public:
 	Sprite();
 	~Sprite();
@@ -25,3 +29,4 @@ private:
 	float _height;
 	GLuint _vboID;
 };
+#endif

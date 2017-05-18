@@ -2,7 +2,6 @@
 #include <string>
 
 #include "Engine.h"
-#include "../Error/error.h"
 
 void display(void) {
         glClear(GL_COLOR_BUFFER_BIT);
@@ -43,7 +42,7 @@ void Engine::initilize() {
     	fatalError("SDL_GL context could not be created!");
     }
 
-#ifndef __APPLE__
+#ifdef _WIN32
     GLenum error = glewInit();
     if(error != GLEW_OK) {
     	fatalError("Could not initialize glew!");

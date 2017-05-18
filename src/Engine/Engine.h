@@ -1,25 +1,23 @@
-#pragma once
+#ifndef ENGINE_H
+#define ENGINE_H
 
-#ifdef __APPLE__
-	#include <SDL2/SDL.h>
-    #include <GLUT/glut.h>
-    #include <OpenGL/gl.h>
-    #include <OpenGL/glu.h>
-#endif
 #ifdef _WIN32
 	#include <glew.h>
 	#include <Windows.h>
 	#include <SDL.h>
-#endif
-#ifdef __linux__
-	#ifndef __APPLE__
-		#include <SDL2/SDL.h>
-		#include <GL/glut.h>
-	#endif
+#elif __APPLE__
+	#include <SDL2/SDL.h>
+    #include <GLUT/glut.h>
+    #include <OpenGL/gl.h>
+    #include <OpenGL/glu.h>
+#elif __linux__
+	#include <GL/glut.h>
+	#include <SDL2/SDL.h>
 #endif
 
 #include "../Sprite/Sprite.h"
 #include "../GLSL/GLSLProgram.h"
+#include "../Error/error.h"
 
 enum class GameState {PLAY, EXIT};
 
@@ -48,3 +46,4 @@ private:
 
 	GLSLProgram _shaderProgram;
 };
+#endif
