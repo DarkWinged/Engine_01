@@ -9,7 +9,6 @@
 	#include <SDL2/SDL.h>
     #include <GLUT/glut.h>
     #include <OpenGL/gl.h>
-    #include <OpenGL/glext.h>
     #include <OpenGL/glu.h>
 #elif __linux__
 	#include <GL/glut.h>
